@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <h1> Employee data successfully uploaded.</h1>
 <li><a href="/home" >Navigate to home page</a></li>
+
 <div>
 <table>
 <thead>
@@ -19,7 +20,6 @@
             <td>
               <h3> DateTo </h3>
             </td>
-          </tr>
         </thead>
         <tbody>
 <c:choose>
@@ -41,4 +41,5 @@
 </c:choose>
 </tbody>
 </table>
+
 </div>
