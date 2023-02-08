@@ -41,5 +41,6 @@
 </c:choose>
 </tbody>
 </table>
+<p> The pair with EmpId: ${emp1Id} and EmpId: ${emp2Id} have worked together for: ${longestPeriod} years.</p>
 
 </div>

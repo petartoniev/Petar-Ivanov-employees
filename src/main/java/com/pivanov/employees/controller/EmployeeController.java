@@ -6,14 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.util.List;
-
 
 @Controller
 @RequestMapping
@@ -33,7 +32,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/employees", method = RequestMethod.POST)
-    public String listAllEmployees(HttpServletRequest request) throws IOException, ServletException {
+    public String listAllEmployees(HttpServletRequest request, HttpSession session) throws IOException, ServletException {
         Part filePart = request.getPart("file");
         String fileName = filePart.getSubmittedFileName();
         String filePath = "C:/Users/p.ivanov/Desktop/uploadedFiles/" + fileName;
@@ -42,8 +41,7 @@ public class EmployeeController {
         }
         List<Employee> employeeList = employeeService.readEmployeesFromCSV(filePath);
         request.setAttribute("employeeList", employeeList);
-
+        employeeService.calculateWorkTime(filePath, session);
         return "employees";
     }
-
 }
