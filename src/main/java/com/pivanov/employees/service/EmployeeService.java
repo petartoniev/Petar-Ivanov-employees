@@ -45,7 +45,7 @@ public class EmployeeService {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        
+
         return employees;
     }
 
@@ -103,9 +103,6 @@ public class EmployeeService {
                         session.setAttribute("emp1Id", emp1Id);
                         session.setAttribute("emp2Id", emp2Id);
                     }
-                }
-                if (j == 5) {
-                    break;
                 }
                 j++;
             }
